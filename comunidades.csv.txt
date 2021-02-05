@@ -1,0 +1,12 @@
+
+Castilla y León;cle
+Castilla - La Mancha;clm
+Cataluña;cat
+Comunitat Valenciana;val
+Extremadura;ext
+Galicia;gal
+Madrid, Comunidad de;mad
+Murcia, Región de;mur
+Navarra, Comunidad Foral de;nav
+País Vasco;pva
+Rioja, La;rio
