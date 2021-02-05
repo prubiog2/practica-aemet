@@ -43,6 +43,7 @@ namespace UD3_Aemet
             this.cboProvincias = new System.Windows.Forms.ComboBox();
             this.btnProvincias = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.gbLocalidades = new System.Windows.Forms.GroupBox();
             this.cboLocalidades = new System.Windows.Forms.ComboBox();
             this.btnLocalidades = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -58,12 +59,30 @@ namespace UD3_Aemet
             this.label1 = new System.Windows.Forms.Label();
             this.btnEstación = new System.Windows.Forms.Button();
             this.dgvEstacion = new System.Windows.Forms.DataGridView();
-            this.gbLocalidades = new System.Windows.Forms.GroupBox();
+            this.txtFecha = new System.Windows.Forms.Label();
+            this.txtLocalidad = new System.Windows.Forms.Label();
+            this.txtProvincia = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblLocalidad = new System.Windows.Forms.Label();
+            this.lblProvincia = new System.Windows.Forms.Label();
+            this.txtTmax = new System.Windows.Forms.Label();
+            this.lblTmax = new System.Windows.Forms.Label();
+            this.txtTmin = new System.Windows.Forms.Label();
+            this.lblTmin = new System.Windows.Forms.Label();
+            this.txtSensacionMin = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSensacionMax = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtHumedadMin = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtHumedadMax = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.tbComunidades.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.gbLocalidades.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontañosos)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -219,6 +238,33 @@ namespace UD3_Aemet
             this.tabPage4.Text = "Localidades";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // gbLocalidades
+            // 
+            this.gbLocalidades.Controls.Add(this.txtHumedadMin);
+            this.gbLocalidades.Controls.Add(this.label9);
+            this.gbLocalidades.Controls.Add(this.txtHumedadMax);
+            this.gbLocalidades.Controls.Add(this.label11);
+            this.gbLocalidades.Controls.Add(this.txtSensacionMin);
+            this.gbLocalidades.Controls.Add(this.label5);
+            this.gbLocalidades.Controls.Add(this.txtSensacionMax);
+            this.gbLocalidades.Controls.Add(this.label7);
+            this.gbLocalidades.Controls.Add(this.txtTmin);
+            this.gbLocalidades.Controls.Add(this.lblTmin);
+            this.gbLocalidades.Controls.Add(this.txtTmax);
+            this.gbLocalidades.Controls.Add(this.lblTmax);
+            this.gbLocalidades.Controls.Add(this.txtFecha);
+            this.gbLocalidades.Controls.Add(this.txtLocalidad);
+            this.gbLocalidades.Controls.Add(this.txtProvincia);
+            this.gbLocalidades.Controls.Add(this.lblFecha);
+            this.gbLocalidades.Controls.Add(this.lblLocalidad);
+            this.gbLocalidades.Controls.Add(this.lblProvincia);
+            this.gbLocalidades.Location = new System.Drawing.Point(6, 45);
+            this.gbLocalidades.Name = "gbLocalidades";
+            this.gbLocalidades.Size = new System.Drawing.Size(702, 368);
+            this.gbLocalidades.TabIndex = 4;
+            this.gbLocalidades.TabStop = false;
+            this.gbLocalidades.Text = "Resultado";
+            // 
             // cboLocalidades
             // 
             this.cboLocalidades.FormattingEnabled = true;
@@ -360,14 +406,167 @@ namespace UD3_Aemet
             this.dgvEstacion.Size = new System.Drawing.Size(702, 360);
             this.dgvEstacion.TabIndex = 1;
             // 
-            // gbLocalidades
+            // txtFecha
             // 
-            this.gbLocalidades.Location = new System.Drawing.Point(6, 45);
-            this.gbLocalidades.Name = "gbLocalidades";
-            this.gbLocalidades.Size = new System.Drawing.Size(702, 368);
-            this.gbLocalidades.TabIndex = 4;
-            this.gbLocalidades.TabStop = false;
-            this.gbLocalidades.Text = "Resultado";
+            this.txtFecha.AutoSize = true;
+            this.txtFecha.Location = new System.Drawing.Point(512, 27);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(0, 13);
+            this.txtFecha.TabIndex = 12;
+            // 
+            // txtLocalidad
+            // 
+            this.txtLocalidad.AutoSize = true;
+            this.txtLocalidad.Location = new System.Drawing.Point(314, 27);
+            this.txtLocalidad.Name = "txtLocalidad";
+            this.txtLocalidad.Size = new System.Drawing.Size(0, 13);
+            this.txtLocalidad.TabIndex = 11;
+            // 
+            // txtProvincia
+            // 
+            this.txtProvincia.AutoSize = true;
+            this.txtProvincia.Location = new System.Drawing.Point(90, 27);
+            this.txtProvincia.Name = "txtProvincia";
+            this.txtProvincia.Size = new System.Drawing.Size(0, 13);
+            this.txtProvincia.TabIndex = 10;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(460, 27);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(46, 13);
+            this.lblFecha.TabIndex = 9;
+            this.lblFecha.Text = "Fecha:";
+            // 
+            // lblLocalidad
+            // 
+            this.lblLocalidad.AutoSize = true;
+            this.lblLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalidad.Location = new System.Drawing.Point(242, 27);
+            this.lblLocalidad.Name = "lblLocalidad";
+            this.lblLocalidad.Size = new System.Drawing.Size(66, 13);
+            this.lblLocalidad.TabIndex = 8;
+            this.lblLocalidad.Text = "Localidad:";
+            // 
+            // lblProvincia
+            // 
+            this.lblProvincia.AutoSize = true;
+            this.lblProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvincia.Location = new System.Drawing.Point(20, 27);
+            this.lblProvincia.Name = "lblProvincia";
+            this.lblProvincia.Size = new System.Drawing.Size(64, 13);
+            this.lblProvincia.TabIndex = 7;
+            this.lblProvincia.Text = "Provincia:";
+            // 
+            // txtTmax
+            // 
+            this.txtTmax.AutoSize = true;
+            this.txtTmax.Location = new System.Drawing.Point(267, 66);
+            this.txtTmax.Name = "txtTmax";
+            this.txtTmax.Size = new System.Drawing.Size(0, 13);
+            this.txtTmax.TabIndex = 14;
+            // 
+            // lblTmax
+            // 
+            this.lblTmax.AutoSize = true;
+            this.lblTmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTmax.Location = new System.Drawing.Point(133, 66);
+            this.lblTmax.Name = "lblTmax";
+            this.lblTmax.Size = new System.Drawing.Size(127, 13);
+            this.lblTmax.TabIndex = 13;
+            this.lblTmax.Text = "Temperatura maxima:";
+            // 
+            // txtTmin
+            // 
+            this.txtTmin.AutoSize = true;
+            this.txtTmin.Location = new System.Drawing.Point(509, 66);
+            this.txtTmin.Name = "txtTmin";
+            this.txtTmin.Size = new System.Drawing.Size(0, 13);
+            this.txtTmin.TabIndex = 16;
+            // 
+            // lblTmin
+            // 
+            this.lblTmin.AutoSize = true;
+            this.lblTmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTmin.Location = new System.Drawing.Point(378, 66);
+            this.lblTmin.Name = "lblTmin";
+            this.lblTmin.Size = new System.Drawing.Size(124, 13);
+            this.lblTmin.TabIndex = 15;
+            this.lblTmin.Text = "Temperatura minima:";
+            // 
+            // txtSensacionMin
+            // 
+            this.txtSensacionMin.AutoSize = true;
+            this.txtSensacionMin.Location = new System.Drawing.Point(537, 126);
+            this.txtSensacionMin.Name = "txtSensacionMin";
+            this.txtSensacionMin.Size = new System.Drawing.Size(0, 13);
+            this.txtSensacionMin.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(378, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(153, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Sensacion termica minima";
+            // 
+            // txtSensacionMax
+            // 
+            this.txtSensacionMax.AutoSize = true;
+            this.txtSensacionMax.Location = new System.Drawing.Point(270, 126);
+            this.txtSensacionMax.Name = "txtSensacionMax";
+            this.txtSensacionMax.Size = new System.Drawing.Size(0, 13);
+            this.txtSensacionMax.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(104, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(160, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Sensacion termica maxima:";
+            // 
+            // txtHumedadMin
+            // 
+            this.txtHumedadMin.AutoSize = true;
+            this.txtHumedadMin.Location = new System.Drawing.Point(535, 179);
+            this.txtHumedadMin.Name = "txtHumedadMin";
+            this.txtHumedadMin.Size = new System.Drawing.Size(0, 13);
+            this.txtHumedadMin.TabIndex = 24;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(381, 179);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(148, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Humedad relativa minima";
+            // 
+            // txtHumedadMax
+            // 
+            this.txtHumedadMax.AutoSize = true;
+            this.txtHumedadMax.Location = new System.Drawing.Point(270, 179);
+            this.txtHumedadMax.Name = "txtHumedadMax";
+            this.txtHumedadMax.Size = new System.Drawing.Size(0, 13);
+            this.txtHumedadMax.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(113, 179);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(151, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Humedad relativa maxima";
             // 
             // Form1
             // 
@@ -386,6 +585,8 @@ namespace UD3_Aemet
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.gbLocalidades.ResumeLayout(false);
+            this.gbLocalidades.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMontañosos)).EndInit();
             this.tabPage6.ResumeLayout(false);
@@ -429,6 +630,24 @@ namespace UD3_Aemet
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboLocalidades;
         private System.Windows.Forms.GroupBox gbLocalidades;
+        private System.Windows.Forms.Label txtFecha;
+        private System.Windows.Forms.Label txtLocalidad;
+        private System.Windows.Forms.Label txtProvincia;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblLocalidad;
+        private System.Windows.Forms.Label lblProvincia;
+        private System.Windows.Forms.Label txtTmin;
+        private System.Windows.Forms.Label lblTmin;
+        private System.Windows.Forms.Label txtTmax;
+        private System.Windows.Forms.Label lblTmax;
+        private System.Windows.Forms.Label txtHumedadMin;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label txtHumedadMax;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label txtSensacionMin;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label txtSensacionMax;
+        private System.Windows.Forms.Label label7;
     }
 }
 

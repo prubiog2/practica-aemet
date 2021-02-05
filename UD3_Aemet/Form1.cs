@@ -25,8 +25,6 @@ namespace UD3_Aemet
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //
-
             cboLocalidades.DataSource = leerLocalidades();
             cboLocalidades.DisplayMember = "Value";
             cboLocalidades.ValueMember = "Key";
@@ -91,7 +89,20 @@ namespace UD3_Aemet
         private void btnLocalidades_Click(object sender, EventArgs e)
         {
             PrediccionLocalidad[] prediccion = ClienteAemet.ValoresClimaLocalidad(cboLocalidades.SelectedValue.ToString());
+            txtFecha.Text = prediccion[0].Elaborado.ToString();
+            txtProvincia.Text = prediccion[0].Provincia;
+            txtLocalidad.Text = prediccion[0].Nombre;
+
+            txtTmax.Text = prediccion[0].Prediccion.Dia[0].Temperatura.Maxima.ToString() + "°C";
+            txtTmin.Text = prediccion[0].Prediccion.Dia[0].Temperatura.Minima.ToString() + "°C";
+
+            txtSensacionMax.Text = prediccion[0].Prediccion.Dia[0].SensTermica.Maxima.ToString() + "°C";
+            txtSensacionMin.Text = prediccion[0].Prediccion.Dia[0].SensTermica.Minima.ToString() + "°C";
+
+            txtHumedadMax.Text = prediccion[0].Prediccion.Dia[0].HumedadRelativa.Maxima.ToString() + "%";
+            txtHumedadMin.Text = prediccion[0].Prediccion.Dia[0].HumedadRelativa.Minima.ToString() + "%";
         }
+
 
     }
 }
