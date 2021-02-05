@@ -121,6 +121,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="PrediccionLocalidad.cs" />
+    <Compile Include="PrediccionMontana.cs" />
+    <Compile Include="PrediccionPlaya.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respuesta.cs" />

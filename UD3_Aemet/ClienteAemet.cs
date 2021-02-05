@@ -47,6 +47,48 @@ namespace UD3_Aemet
                         return diccaa;
         }
 
+        public static Dictionary<string, string> GenerateCODAlcance()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+            dic.Add("Hoy", "0");
+            dic.Add("Mañana", "1");
+            dic.Add("Pasado Mañana", "2");
+            dic.Add("Siguiente", "3");
+
+            return dic;
+        }
+
+        public static Dictionary<string, string> GenerateCODPlaya()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+            dic = File.ReadLines("..\\Playas_codigos.csv").Select(line => line.Split(';'))
+                .ToDictionary(line => line[0], line => line[1]);
+
+            return dic;
+        }
+
+        public static Dictionary<string , string> GenerateCODProvincia()
+        {
+            Dictionary<string, string> dicprov = new Dictionary<string, string>();
+
+            dicprov = File.ReadLines("..\\codProvincia.csv").Select(line => line.Split(','))
+                .ToDictionary(line => line[0], line => line[1]);
+
+            return dicprov;
+        }
+
+        public static Dictionary<string, string> GenerateCODMontana()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+            dic = File.ReadLines("..\\codMontana.csv").Select(line => line.Split(','))
+                .ToDictionary(line => line[0], line => line[1]);
+
+            return dic;
+        }
+
         public static List<Estacion> InventarioTodasEstaciones()
         {
             const string INVENTARIO = "/api/valores/climatologicos/inventarioestaciones/todasestaciones";
@@ -176,6 +218,91 @@ namespace UD3_Aemet
                 {
                     string datos = ClienteDatos.GetDatos(resp.datos);
                     return PrediccionLocalidad.FromJson(datos);
+                }
+                else
+                {
+                    throw new ApplicationException("Error: " + resp.estado.ToString() + " " + resp.descripcion);
+                }
+            }
+            else
+            {
+                throw new ApplicationException("Error: " + response.StatusCode.ToString() + " " + response.StatusDescription);
+            }
+        }
+
+        public static PrediccionMontana[] ValoresClimaMontana(string codMontana, string alcance)
+        {
+            string diario = $"/api/prediccion/especifica/montaña/pasada/area/{codMontana}/dia/{alcance}";
+            string uri = DIR + diario + API_KEY + ApiKey;
+            var client = new RestClient(uri);
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("cache-control", "no-cache");
+            var response = client.Execute(request);
+
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                var resp = JsonSerializer.Deserialize<Respuesta>(response.Content);
+                if (resp.estado == Respuesta.OK)
+                {
+                    string datos = ClienteDatos.GetDatos(resp.datos);
+                    return PrediccionMontana.FromJson(datos);
+                }
+                else
+                {
+                    throw new ApplicationException("Error: " + resp.estado.ToString() + " " + resp.descripcion);
+                }
+            }
+            else
+            {
+                throw new ApplicationException("Error: " + response.StatusCode.ToString() + " " + response.StatusDescription);
+            }
+        }
+
+        public static PrediccionPlaya[] ValoresClimaPlaya(string codPlaya)
+        {
+            string diario = $"/api/prediccion/especifica/playa/{codPlaya}";
+            string uri = DIR + diario + API_KEY + ApiKey;
+            var client = new RestClient(uri);
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("cache-control", "no-cache");
+            var response = client.Execute(request);
+
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                var resp = JsonSerializer.Deserialize<Respuesta>(response.Content);
+                if (resp.estado == Respuesta.OK)
+                {
+                    string datos = ClienteDatos.GetDatos(resp.datos);
+                    //return PrediccionPlaya.FromJson(datos);
+
+                    return JsonSerializer.Deserialize<PrediccionPlaya[]>(datos);
+                }
+                else
+                {
+                    throw new ApplicationException("Error: " + resp.estado.ToString() + " " + resp.descripcion);
+                }
+            }
+            else
+            {
+                throw new ApplicationException("Error: " + response.StatusCode.ToString() + " " + response.StatusDescription);
+            }
+        }
+
+        public static string ValoresClimaProvincia(string codProvincia)
+        {
+            string diario = $"/api/prediccion/provincia/hoy/{codProvincia}";
+            string uri = DIR + diario + API_KEY + ApiKey;
+            var client = new RestClient(uri);
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("cache-control", "no-cache");
+            var response = client.Execute(request);
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                var resp = JsonSerializer.Deserialize<Respuesta>(response.Content);
+                if (resp.estado == Respuesta.OK)
+                {
+                    string datos = ClienteDatos.GetDatos(resp.datos);
+                    return datos;
                 }
                 else
                 {

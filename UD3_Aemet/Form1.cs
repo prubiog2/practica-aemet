@@ -17,6 +17,10 @@ namespace UD3_Aemet
     {
         BindingList<ValoresDiarios> binding = new BindingList<ValoresDiarios>();
         Dictionary<string, string> codCCAA = new Dictionary<string, string>();
+        Dictionary<string, string> codProv = new Dictionary<string, string>();
+        Dictionary<string, string> codMon = new Dictionary<string, string>();
+        Dictionary<string, string> codAlcance = new Dictionary<string, string>();
+        Dictionary<string, string> codPlaya = new Dictionary<string, string>();
 
         public Form1()
         {
@@ -39,6 +43,18 @@ namespace UD3_Aemet
 
             codCCAA = ClienteAemet.GenerateCODCcaa();
             cboComunidades.DataSource = codCCAA.Keys.ToArray();
+
+            codProv = ClienteAemet.GenerateCODProvincia();
+            cboProvincias.DataSource = codProv.Keys.ToArray();
+
+            codMon = ClienteAemet.GenerateCODMontana();
+            cboMacizo.DataSource = codMon.Keys.ToArray();
+
+            codAlcance = ClienteAemet.GenerateCODAlcance();
+            cboAlcance.DataSource = codAlcance.Keys.ToArray();
+
+            codPlaya = ClienteAemet.GenerateCODPlaya();
+            cboPlaya.DataSource = codPlaya.Values.ToArray();
         }
 
         private void btnEstación_Click(object sender, EventArgs e)
@@ -103,7 +119,37 @@ namespace UD3_Aemet
             txtHumedadMin.Text = prediccion[0].Prediccion.Dia[0].HumedadRelativa.Minima.ToString() + "%";
         }
 
+        private void btnProvincias_Click(object sender, EventArgs e)
+        {
+            string select = (string)cboProvincias.SelectedItem;
 
+            string cod = codProv[select];
+
+            string prv_hoy = ClienteAemet.ValoresClimaProvincia(cod);
+
+            txtProvincias.Text = prv_hoy;
+        }
+
+        private void btnMontañosos_Click(object sender, EventArgs e)
+        {
+            string select = (string)cboMacizo.SelectedItem;
+            string codMontana = codMon[select];
+
+            select = (string)cboAlcance.SelectedItem;
+            string codAlc = codAlcance[select];
+
+            PrediccionMontana[] prediccion = ClienteAemet.ValoresClimaMontana(codMontana, codAlc);
+            //TODO Ir accediento a cada elemento que queramos mostrar y ponerlo en la vista
+        }
+
+        private void btnPlayas_Click(object sender, EventArgs e)
+        {
+            var cod_playa = codPlaya.FirstOrDefault(x => x.Value == (string)cboPlaya.SelectedItem).Key;
+
+            PrediccionPlaya[] prediccion = ClienteAemet.ValoresClimaPlaya(cod_playa);
+            var y = prediccion[0];
+            //TODO Arreglar la clase Playas y mostrar los datos en la vista
+        }
     }
 }
 
