@@ -43,6 +43,9 @@ namespace UD3_Aemet
             this.cboProvincias = new System.Windows.Forms.ComboBox();
             this.btnProvincias = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cboDiasLocalidad = new System.Windows.Forms.ComboBox();
             this.gbLocalidades = new System.Windows.Forms.GroupBox();
             this.txtHumedadMin = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,7 +73,6 @@ namespace UD3_Aemet
             this.cboAlcance = new System.Windows.Forms.ComboBox();
             this.cboMacizo = new System.Windows.Forms.ComboBox();
             this.btnMontañosos = new System.Windows.Forms.Button();
-            this.dgvMontañosos = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPlayaViento = new System.Windows.Forms.Label();
@@ -100,9 +102,17 @@ namespace UD3_Aemet
             this.label1 = new System.Windows.Forms.Label();
             this.btnEstación = new System.Windows.Forms.Button();
             this.dgvEstacion = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cboDiasLocalidad = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblViento = new System.Windows.Forms.Label();
+            this.lblTormentas = new System.Windows.Forms.Label();
+            this.lblCielo = new System.Windows.Forms.Label();
+            this.lblPrecipitaciones = new System.Windows.Forms.Label();
+            this.txtPrecipitaciones = new System.Windows.Forms.TextBox();
+            this.txtCielo = new System.Windows.Forms.TextBox();
+            this.txtTormentas = new System.Windows.Forms.TextBox();
+            this.txtViento = new System.Windows.Forms.TextBox();
+            this.txtTemperaturas = new System.Windows.Forms.TextBox();
+            this.lblTemperaturas = new System.Windows.Forms.Label();
             this.tbComunidades.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -110,11 +120,11 @@ namespace UD3_Aemet
             this.tabPage4.SuspendLayout();
             this.gbLocalidades.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMontañosos)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstacion)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbComunidades
@@ -267,6 +277,40 @@ namespace UD3_Aemet
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Localidades";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(37, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Localidad";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(305, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(25, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Día";
+            // 
+            // cboDiasLocalidad
+            // 
+            this.cboDiasLocalidad.FormattingEnabled = true;
+            this.cboDiasLocalidad.Items.AddRange(new object[] {
+            "Ayer",
+            "Hoy",
+            "Mañana",
+            "Pasado mañana",
+            "Dentro de 3 días",
+            "Dentro de 4 días",
+            "Dentro de 5 días"});
+            this.cboDiasLocalidad.Location = new System.Drawing.Point(344, 17);
+            this.cboDiasLocalidad.Name = "cboDiasLocalidad";
+            this.cboDiasLocalidad.Size = new System.Drawing.Size(102, 21);
+            this.cboDiasLocalidad.TabIndex = 11;
             // 
             // gbLocalidades
             // 
@@ -477,12 +521,12 @@ namespace UD3_Aemet
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.groupBox2);
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Controls.Add(this.label4);
             this.tabPage5.Controls.Add(this.cboAlcance);
             this.tabPage5.Controls.Add(this.cboMacizo);
             this.tabPage5.Controls.Add(this.btnMontañosos);
-            this.tabPage5.Controls.Add(this.dgvMontañosos);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -520,7 +564,7 @@ namespace UD3_Aemet
             // cboMacizo
             // 
             this.cboMacizo.FormattingEnabled = true;
-            this.cboMacizo.Location = new System.Drawing.Point(98, 17);
+            this.cboMacizo.Location = new System.Drawing.Point(99, 19);
             this.cboMacizo.Name = "cboMacizo";
             this.cboMacizo.Size = new System.Drawing.Size(237, 21);
             this.cboMacizo.TabIndex = 4;
@@ -534,14 +578,6 @@ namespace UD3_Aemet
             this.btnMontañosos.Text = "Buscar";
             this.btnMontañosos.UseVisualStyleBackColor = true;
             this.btnMontañosos.Click += new System.EventHandler(this.btnMontañosos_Click);
-            // 
-            // dgvMontañosos
-            // 
-            this.dgvMontañosos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMontañosos.Location = new System.Drawing.Point(3, 53);
-            this.dgvMontañosos.Name = "dgvMontañosos";
-            this.dgvMontañosos.Size = new System.Drawing.Size(705, 360);
-            this.dgvMontañosos.TabIndex = 1;
             // 
             // tabPage6
             // 
@@ -832,39 +868,114 @@ namespace UD3_Aemet
             this.dgvEstacion.Size = new System.Drawing.Size(702, 360);
             this.dgvEstacion.TabIndex = 1;
             // 
-            // label12
+            // groupBox2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(305, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(25, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Día";
+            this.groupBox2.Controls.Add(this.txtTemperaturas);
+            this.groupBox2.Controls.Add(this.lblTemperaturas);
+            this.groupBox2.Controls.Add(this.txtViento);
+            this.groupBox2.Controls.Add(this.txtTormentas);
+            this.groupBox2.Controls.Add(this.txtCielo);
+            this.groupBox2.Controls.Add(this.txtPrecipitaciones);
+            this.groupBox2.Controls.Add(this.lblViento);
+            this.groupBox2.Controls.Add(this.lblTormentas);
+            this.groupBox2.Controls.Add(this.lblCielo);
+            this.groupBox2.Controls.Add(this.lblPrecipitaciones);
+            this.groupBox2.Location = new System.Drawing.Point(6, 46);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(702, 367);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Resultado";
             // 
-            // cboDiasLocalidad
+            // lblViento
             // 
-            this.cboDiasLocalidad.FormattingEnabled = true;
-            this.cboDiasLocalidad.Items.AddRange(new object[] {
-            "Ayer",
-            "Hoy",
-            "Mañana",
-            "Pasado mañana",
-            "Dentro de 3 días",
-            "Dentro de 4 días",
-            "Dentro de 5 días"});
-            this.cboDiasLocalidad.Location = new System.Drawing.Point(344, 17);
-            this.cboDiasLocalidad.Name = "cboDiasLocalidad";
-            this.cboDiasLocalidad.Size = new System.Drawing.Size(102, 21);
-            this.cboDiasLocalidad.TabIndex = 11;
+            this.lblViento.AutoSize = true;
+            this.lblViento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViento.Location = new System.Drawing.Point(110, 305);
+            this.lblViento.Name = "lblViento";
+            this.lblViento.Size = new System.Drawing.Size(47, 13);
+            this.lblViento.TabIndex = 21;
+            this.lblViento.Text = "Viento:";
             // 
-            // label13
+            // lblTormentas
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(37, 20);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Localidad";
+            this.lblTormentas.AutoSize = true;
+            this.lblTormentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTormentas.Location = new System.Drawing.Point(87, 181);
+            this.lblTormentas.Name = "lblTormentas";
+            this.lblTormentas.Size = new System.Drawing.Size(70, 13);
+            this.lblTormentas.TabIndex = 17;
+            this.lblTormentas.Text = "Tormentas:";
+            // 
+            // lblCielo
+            // 
+            this.lblCielo.AutoSize = true;
+            this.lblCielo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCielo.Location = new System.Drawing.Point(118, 119);
+            this.lblCielo.Name = "lblCielo";
+            this.lblCielo.Size = new System.Drawing.Size(39, 13);
+            this.lblCielo.TabIndex = 13;
+            this.lblCielo.Text = "Cielo:";
+            // 
+            // lblPrecipitaciones
+            // 
+            this.lblPrecipitaciones.AutoSize = true;
+            this.lblPrecipitaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecipitaciones.Location = new System.Drawing.Point(59, 58);
+            this.lblPrecipitaciones.Name = "lblPrecipitaciones";
+            this.lblPrecipitaciones.Size = new System.Drawing.Size(98, 13);
+            this.lblPrecipitaciones.TabIndex = 7;
+            this.lblPrecipitaciones.Text = "Precipitaciones:";
+            // 
+            // txtPrecipitaciones
+            // 
+            this.txtPrecipitaciones.Location = new System.Drawing.Point(163, 31);
+            this.txtPrecipitaciones.Multiline = true;
+            this.txtPrecipitaciones.Name = "txtPrecipitaciones";
+            this.txtPrecipitaciones.Size = new System.Drawing.Size(524, 61);
+            this.txtPrecipitaciones.TabIndex = 22;
+            // 
+            // txtCielo
+            // 
+            this.txtCielo.Location = new System.Drawing.Point(163, 99);
+            this.txtCielo.Multiline = true;
+            this.txtCielo.Name = "txtCielo";
+            this.txtCielo.Size = new System.Drawing.Size(524, 56);
+            this.txtCielo.TabIndex = 23;
+            // 
+            // txtTormentas
+            // 
+            this.txtTormentas.Location = new System.Drawing.Point(163, 161);
+            this.txtTormentas.Multiline = true;
+            this.txtTormentas.Name = "txtTormentas";
+            this.txtTormentas.Size = new System.Drawing.Size(524, 58);
+            this.txtTormentas.TabIndex = 24;
+            // 
+            // txtViento
+            // 
+            this.txtViento.Location = new System.Drawing.Point(163, 283);
+            this.txtViento.Multiline = true;
+            this.txtViento.Name = "txtViento";
+            this.txtViento.Size = new System.Drawing.Size(524, 54);
+            this.txtViento.TabIndex = 25;
+            // 
+            // txtTemperaturas
+            // 
+            this.txtTemperaturas.Location = new System.Drawing.Point(163, 223);
+            this.txtTemperaturas.Multiline = true;
+            this.txtTemperaturas.Name = "txtTemperaturas";
+            this.txtTemperaturas.Size = new System.Drawing.Size(524, 54);
+            this.txtTemperaturas.TabIndex = 27;
+            // 
+            // lblTemperaturas
+            // 
+            this.lblTemperaturas.AutoSize = true;
+            this.lblTemperaturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperaturas.Location = new System.Drawing.Point(69, 243);
+            this.lblTemperaturas.Name = "lblTemperaturas";
+            this.lblTemperaturas.Size = new System.Drawing.Size(88, 13);
+            this.lblTemperaturas.TabIndex = 26;
+            this.lblTemperaturas.Text = "Temperaturas:";
             // 
             // Form1
             // 
@@ -888,7 +999,6 @@ namespace UD3_Aemet
             this.gbLocalidades.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMontañosos)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -896,6 +1006,8 @@ namespace UD3_Aemet
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstacion)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -916,7 +1028,6 @@ namespace UD3_Aemet
         private System.Windows.Forms.Button btnLocalidades;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button btnMontañosos;
-        private System.Windows.Forms.DataGridView dgvMontañosos;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.DateTimePicker dtFin;
@@ -976,6 +1087,17 @@ namespace UD3_Aemet
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cboDiasLocalidad;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtViento;
+        private System.Windows.Forms.TextBox txtTormentas;
+        private System.Windows.Forms.TextBox txtCielo;
+        private System.Windows.Forms.TextBox txtPrecipitaciones;
+        private System.Windows.Forms.Label lblViento;
+        private System.Windows.Forms.Label lblTormentas;
+        private System.Windows.Forms.Label lblCielo;
+        private System.Windows.Forms.Label lblPrecipitaciones;
+        private System.Windows.Forms.TextBox txtTemperaturas;
+        private System.Windows.Forms.Label lblTemperaturas;
     }
 }
 

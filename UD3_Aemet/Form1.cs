@@ -164,7 +164,11 @@ namespace UD3_Aemet
 
             PrediccionMontana[] prediccion = ClienteAemet.ValoresClimaMontana(codMontana, codAlc);
 
-
+            txtCielo.Text = prediccion[0].Seccion[0].Apartado[0].Texto;
+            txtPrecipitaciones.Text = prediccion[0].Seccion[0].Apartado[1].Texto;
+            txtTormentas.Text = prediccion[0].Seccion[0].Apartado[2].Texto;
+            txtTemperaturas.Text = prediccion[0].Seccion[0].Apartado[3].Texto;
+            txtViento.Text = prediccion[0].Seccion[0].Apartado[4].Texto;
             //TODO Ir accediento a cada elemento que queramos mostrar y ponerlo en la vista
 
         }
