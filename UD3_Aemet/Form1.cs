@@ -2,13 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UD3_Aemet
@@ -22,10 +18,15 @@ namespace UD3_Aemet
         Dictionary<string, string> codAlcance = new Dictionary<string, string>();
         Dictionary<string, string> codPlaya = new Dictionary<string, string>();
 
+        static CultureInfo ci = new CultureInfo("es-ES");
+        TextInfo ti = ci.TextInfo;
+
         public Form1()
         {
             InitializeComponent();
         }
+
+        #region LLenar los ComboBox
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -57,34 +58,11 @@ namespace UD3_Aemet
             cboPlaya.DataSource = codPlaya.Values.ToArray();
         }
 
-        private void btnEstación_Click(object sender, EventArgs e)
-        {
-            string fechaIni = dtInicio.Value.ToString("yyyy-MM-ddThh:00:0" + "0UTC");
-            string fechaFin = dtFin.Value.ToString("yyyy-MM-ddThh:00:00UTC");
-            string idema = ((Estacion)cboEstaciones.SelectedItem).indicativo;
-            var diarios = ClienteAemet.ValoresClimaDiario(fechaIni, fechaFin, idema);
-            binding.Clear();
-            Array.ForEach(diarios, d => binding.Add(d));
-            binding.ResetBindings();
-        }
-
-        private void btnAutonomas_Click(object sender, EventArgs e)
-        {
-            string select = (string) cboComunidades.SelectedItem;
-
-            string cod = codCCAA[select];
-
-            string ccaa_hoy = ClienteAemet.ValoresPrediccionComunidad(cod);
-
-            txtComunidades.Text = ccaa_hoy;
-        }
-
-
         public List<KeyValuePair<string, string>> leerLocalidades()
         {
             var list = new List<KeyValuePair<string, string>>();
             string workingDirectory = Environment.CurrentDirectory;
-            FileInfo existingFile = new FileInfo(Directory.GetParent(workingDirectory).Parent.FullName + "\\bin\\20codmun.xlsx");
+            FileInfo existingFile = new FileInfo(Directory.GetParent(workingDirectory).Parent.FullName + ".\\Codigos\\20codmun.xlsx");
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
             using (ExcelPackage package = new ExcelPackage(existingFile))
@@ -101,24 +79,69 @@ namespace UD3_Aemet
             }
             return list;
         }
+        #endregion
 
+
+        #region Realizar Request y mostrar los datos
+        //ESTACIONES METEREOLÓGICAS
+        private void btnEstación_Click(object sender, EventArgs e)
+        {
+            string fechaIni = dtInicio.Value.ToString("yyyy-MM-ddThh:00:0" + "0UTC");
+            string fechaFin = dtFin.Value.ToString("yyyy-MM-ddThh:00:00UTC");
+            string idema = ((Estacion)cboEstaciones.SelectedItem).indicativo;
+            var diarios = ClienteAemet.ValoresClimaDiario(fechaIni, fechaFin, idema);
+            binding.Clear();
+            Array.ForEach(diarios, d => binding.Add(d));
+            binding.ResetBindings();
+        }
+
+        //COMUNIDADES AUTÓNOMAS
+        private void btnAutonomas_Click(object sender, EventArgs e)
+        {
+            string select = (string)cboComunidades.SelectedItem;
+
+            string cod = codCCAA[select];
+
+            string ccaa_hoy = ClienteAemet.ValoresPrediccionComunidad(cod);
+
+            txtComunidades.Text = ccaa_hoy;
+        }
+
+
+        //LOCALIDADES
         private void btnLocalidades_Click(object sender, EventArgs e)
         {
             PrediccionLocalidad[] prediccion = ClienteAemet.ValoresClimaLocalidad(cboLocalidades.SelectedValue.ToString());
-            txtFecha.Text = prediccion[0].Elaborado.ToString();
+
+            var dia = cboDiasLocalidad.SelectedIndex;
+
+            if (dia < 0)
+            {
+                dia = 1;
+                cboDiasLocalidad.SelectedIndex = 1;
+            }
+
+            renderLocalidadData(prediccion, dia);
+        }
+
+        private void renderLocalidadData(PrediccionLocalidad[] prediccion, int dia)
+        {
+            txtFecha.Text = DateTime.ParseExact(prediccion[0].Prediccion.Dia[dia].Fecha.DateTime.ToString(), "dd/MM/yyyy h:mm:ss",
+                            ci.DateTimeFormat).ToString("D");
             txtProvincia.Text = prediccion[0].Provincia;
             txtLocalidad.Text = prediccion[0].Nombre;
 
-            txtTmax.Text = prediccion[0].Prediccion.Dia[0].Temperatura.Maxima.ToString() + "°C";
-            txtTmin.Text = prediccion[0].Prediccion.Dia[0].Temperatura.Minima.ToString() + "°C";
+            txtTmax.Text = prediccion[0].Prediccion.Dia[dia].Temperatura.Maxima.ToString() + "°C";
+            txtTmin.Text = prediccion[0].Prediccion.Dia[dia].Temperatura.Minima.ToString() + "°C";
 
-            txtSensacionMax.Text = prediccion[0].Prediccion.Dia[0].SensTermica.Maxima.ToString() + "°C";
-            txtSensacionMin.Text = prediccion[0].Prediccion.Dia[0].SensTermica.Minima.ToString() + "°C";
+            txtSensacionMax.Text = prediccion[0].Prediccion.Dia[dia].SensTermica.Maxima.ToString() + "°C";
+            txtSensacionMin.Text = prediccion[0].Prediccion.Dia[dia].SensTermica.Minima.ToString() + "°C";
 
-            txtHumedadMax.Text = prediccion[0].Prediccion.Dia[0].HumedadRelativa.Maxima.ToString() + "%";
-            txtHumedadMin.Text = prediccion[0].Prediccion.Dia[0].HumedadRelativa.Minima.ToString() + "%";
+            txtHumedadMax.Text = prediccion[0].Prediccion.Dia[dia].HumedadRelativa.Maxima.ToString() + "%";
+            txtHumedadMin.Text = prediccion[0].Prediccion.Dia[dia].HumedadRelativa.Minima.ToString() + "%";
         }
 
+        //PROVINCIAS
         private void btnProvincias_Click(object sender, EventArgs e)
         {
             string select = (string)cboProvincias.SelectedItem;
@@ -130,6 +153,7 @@ namespace UD3_Aemet
             txtProvincias.Text = prv_hoy;
         }
 
+        //MONTAÑA
         private void btnMontañosos_Click(object sender, EventArgs e)
         {
             string select = (string)cboMacizo.SelectedItem;
@@ -139,18 +163,56 @@ namespace UD3_Aemet
             string codAlc = codAlcance[select];
 
             PrediccionMontana[] prediccion = ClienteAemet.ValoresClimaMontana(codMontana, codAlc);
+
+
             //TODO Ir accediento a cada elemento que queramos mostrar y ponerlo en la vista
+
         }
 
+
+        //PLAYAS
         private void btnPlayas_Click(object sender, EventArgs e)
         {
+            DiaPlaya data = getPlayaData();
+
+            renderPlayaData(ci, ti, data);
+        }
+
+        private void cboDiaPlaya_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DiaPlaya data = getPlayaData();
+            renderPlayaData(ci, ti, data);
+        }
+
+        private DiaPlaya getPlayaData()
+        {
             var cod_playa = codPlaya.FirstOrDefault(x => x.Value == (string)cboPlaya.SelectedItem).Key;
+            var dia = cboDiaPlaya.SelectedIndex;
 
             PrediccionPlaya[] prediccion = ClienteAemet.ValoresClimaPlaya(cod_playa);
-            var y = prediccion[0];
-            //TODO Arreglar la clase Playas y mostrar los datos en la vista
+
+            if (dia < 0)
+            {
+                dia = 1;
+                cboDiaPlaya.SelectedIndex = 1;
+            }
+
+            var data = prediccion[0].Prediccion.DiaPlaya[dia];
+            return data;
         }
-    }
+
+        private void renderPlayaData(CultureInfo ci, TextInfo ti, DiaPlaya data)
+        {
+            lblPlayaFecha.Text = DateTime.ParseExact(data.Fecha.ToString(), "yyyyMMdd", ci.DateTimeFormat).ToString("D");
+            lblPlayaCielo.Text = ti.ToTitleCase(data.EstadoCieloPlaya.Descripcion1);
+            lblPlayaOleaje.Text = ti.ToTitleCase(data.Oleaje.Descripcion1);
+            lblPlayaSensTer.Text = ti.ToTitleCase(data.STermica.Descripcion1);
+            lblPlayaTemAgua.Text = data.TAgua.Valor1.ToString() + "°C";
+            lblPlayaViento.Text = ti.ToTitleCase(data.Viento.Descripcion1);
+            lblPlayaTempMax.Text = data.TMaxima.Valor1.ToString() + "°C";
+        }
+    } 
+    #endregion
 }
 
 

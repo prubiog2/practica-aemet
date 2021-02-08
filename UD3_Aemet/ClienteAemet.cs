@@ -63,7 +63,7 @@ namespace UD3_Aemet
         {
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
-            dic = File.ReadLines("..\\Playas_codigos.csv").Select(line => line.Split(';'))
+            dic = File.ReadLines("..\\..\\Codigos\\Playas_codigos.csv").Select(line => line.Split(';'))
                 .ToDictionary(line => line[0], line => line[1]);
 
             return dic;
@@ -73,7 +73,7 @@ namespace UD3_Aemet
         {
             Dictionary<string, string> dicprov = new Dictionary<string, string>();
 
-            dicprov = File.ReadLines("..\\codProvincia.csv").Select(line => line.Split(','))
+            dicprov = File.ReadLines("..\\..\\Codigos\\codProvincia.csv").Select(line => line.Split(','))
                 .ToDictionary(line => line[0], line => line[1]);
 
             return dicprov;
@@ -83,7 +83,7 @@ namespace UD3_Aemet
         {
             Dictionary<string, string> dic = new Dictionary<string, string>();
 
-            dic = File.ReadLines("..\\codMontana.csv").Select(line => line.Split(','))
+            dic = File.ReadLines("..\\..\\Codigos\\codMontana.csv").Select(line => line.Split(','))
                 .ToDictionary(line => line[0], line => line[1]);
 
             return dic;
@@ -275,7 +275,7 @@ namespace UD3_Aemet
                     string datos = ClienteDatos.GetDatos(resp.datos);
                     //return PrediccionPlaya.FromJson(datos);
 
-                    return JsonSerializer.Deserialize<PrediccionPlaya[]>(datos);
+                    return PrediccionPlaya.FromJson(datos);
                 }
                 else
                 {
