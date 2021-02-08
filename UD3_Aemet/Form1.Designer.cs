@@ -65,13 +65,19 @@ namespace UD3_Aemet
             this.cboLocalidades = new System.Windows.Forms.ComboBox();
             this.btnLocalidades = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.gbMontanoso = new System.Windows.Forms.GroupBox();
+            this.txtPrecipitaciones = new System.Windows.Forms.TextBox();
+            this.lblPrecipitaciones = new System.Windows.Forms.Label();
+            this.txtCielo = new System.Windows.Forms.TextBox();
+            this.lblCielo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cboAlcance = new System.Windows.Forms.ComboBox();
             this.cboMacizo = new System.Windows.Forms.ComboBox();
             this.btnMontañosos = new System.Windows.Forms.Button();
-            this.dgvMontañosos = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboPlaya = new System.Windows.Forms.ComboBox();
             this.btnPlayas = new System.Windows.Forms.Button();
             this.dgvPlayas = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -81,8 +87,8 @@ namespace UD3_Aemet
             this.label1 = new System.Windows.Forms.Label();
             this.btnEstación = new System.Windows.Forms.Button();
             this.dgvEstacion = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboPlaya = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tbComunidades.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -90,7 +96,7 @@ namespace UD3_Aemet
             this.tabPage4.SuspendLayout();
             this.gbLocalidades.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMontañosos)).BeginInit();
+            this.gbMontanoso.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayas)).BeginInit();
             this.tabPage7.SuspendLayout();
@@ -454,12 +460,12 @@ namespace UD3_Aemet
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.gbMontanoso);
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Controls.Add(this.label4);
             this.tabPage5.Controls.Add(this.cboAlcance);
             this.tabPage5.Controls.Add(this.cboMacizo);
             this.tabPage5.Controls.Add(this.btnMontañosos);
-            this.tabPage5.Controls.Add(this.dgvMontañosos);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -467,6 +473,53 @@ namespace UD3_Aemet
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Macizos Montañosos";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // gbMontanoso
+            // 
+            this.gbMontanoso.Controls.Add(this.textBox2);
+            this.gbMontanoso.Controls.Add(this.textBox1);
+            this.gbMontanoso.Controls.Add(this.txtPrecipitaciones);
+            this.gbMontanoso.Controls.Add(this.lblPrecipitaciones);
+            this.gbMontanoso.Controls.Add(this.txtCielo);
+            this.gbMontanoso.Controls.Add(this.lblCielo);
+            this.gbMontanoso.Location = new System.Drawing.Point(7, 49);
+            this.gbMontanoso.Name = "gbMontanoso";
+            this.gbMontanoso.Size = new System.Drawing.Size(701, 364);
+            this.gbMontanoso.TabIndex = 8;
+            this.gbMontanoso.TabStop = false;
+            this.gbMontanoso.Text = "Resultado";
+            // 
+            // txtPrecipitaciones
+            // 
+            this.txtPrecipitaciones.Location = new System.Drawing.Point(132, 70);
+            this.txtPrecipitaciones.Name = "txtPrecipitaciones";
+            this.txtPrecipitaciones.Size = new System.Drawing.Size(421, 20);
+            this.txtPrecipitaciones.TabIndex = 3;
+            // 
+            // lblPrecipitaciones
+            // 
+            this.lblPrecipitaciones.AutoSize = true;
+            this.lblPrecipitaciones.Location = new System.Drawing.Point(36, 73);
+            this.lblPrecipitaciones.Name = "lblPrecipitaciones";
+            this.lblPrecipitaciones.Size = new System.Drawing.Size(79, 13);
+            this.lblPrecipitaciones.TabIndex = 2;
+            this.lblPrecipitaciones.Text = "Precipitaciones";
+            // 
+            // txtCielo
+            // 
+            this.txtCielo.Location = new System.Drawing.Point(91, 36);
+            this.txtCielo.Name = "txtCielo";
+            this.txtCielo.Size = new System.Drawing.Size(462, 20);
+            this.txtCielo.TabIndex = 1;
+            // 
+            // lblCielo
+            // 
+            this.lblCielo.AutoSize = true;
+            this.lblCielo.Location = new System.Drawing.Point(39, 39);
+            this.lblCielo.Name = "lblCielo";
+            this.lblCielo.Size = new System.Drawing.Size(30, 13);
+            this.lblCielo.TabIndex = 0;
+            this.lblCielo.Text = "Cielo";
             // 
             // label6
             // 
@@ -512,14 +565,6 @@ namespace UD3_Aemet
             this.btnMontañosos.UseVisualStyleBackColor = true;
             this.btnMontañosos.Click += new System.EventHandler(this.btnMontañosos_Click);
             // 
-            // dgvMontañosos
-            // 
-            this.dgvMontañosos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMontañosos.Location = new System.Drawing.Point(3, 53);
-            this.dgvMontañosos.Name = "dgvMontañosos";
-            this.dgvMontañosos.Size = new System.Drawing.Size(705, 360);
-            this.dgvMontañosos.TabIndex = 1;
-            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.label8);
@@ -533,6 +578,23 @@ namespace UD3_Aemet
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Playas";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Playa";
+            // 
+            // cboPlaya
+            // 
+            this.cboPlaya.FormattingEnabled = true;
+            this.cboPlaya.Location = new System.Drawing.Point(76, 18);
+            this.cboPlaya.Name = "cboPlaya";
+            this.cboPlaya.Size = new System.Drawing.Size(237, 21);
+            this.cboPlaya.TabIndex = 7;
             // 
             // btnPlayas
             // 
@@ -617,22 +679,19 @@ namespace UD3_Aemet
             this.dgvEstacion.Size = new System.Drawing.Size(702, 360);
             this.dgvEstacion.TabIndex = 1;
             // 
-            // label8
+            // textBox1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Playa";
+            this.textBox1.Location = new System.Drawing.Point(132, 105);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(421, 20);
+            this.textBox1.TabIndex = 4;
             // 
-            // cboPlaya
+            // textBox2
             // 
-            this.cboPlaya.FormattingEnabled = true;
-            this.cboPlaya.Location = new System.Drawing.Point(76, 18);
-            this.cboPlaya.Name = "cboPlaya";
-            this.cboPlaya.Size = new System.Drawing.Size(237, 21);
-            this.cboPlaya.TabIndex = 7;
+            this.textBox2.Location = new System.Drawing.Point(132, 144);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(421, 20);
+            this.textBox2.TabIndex = 5;
             // 
             // Form1
             // 
@@ -655,7 +714,8 @@ namespace UD3_Aemet
             this.gbLocalidades.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMontañosos)).EndInit();
+            this.gbMontanoso.ResumeLayout(false);
+            this.gbMontanoso.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlayas)).EndInit();
@@ -682,7 +742,6 @@ namespace UD3_Aemet
         private System.Windows.Forms.Button btnLocalidades;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button btnMontañosos;
-        private System.Windows.Forms.DataGridView dgvMontañosos;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button btnPlayas;
         private System.Windows.Forms.DataGridView dgvPlayas;
@@ -722,6 +781,13 @@ namespace UD3_Aemet
         private System.Windows.Forms.ComboBox cboMacizo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboPlaya;
+        private System.Windows.Forms.GroupBox gbMontanoso;
+        private System.Windows.Forms.Label lblCielo;
+        private System.Windows.Forms.TextBox txtCielo;
+        private System.Windows.Forms.TextBox txtPrecipitaciones;
+        private System.Windows.Forms.Label lblPrecipitaciones;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

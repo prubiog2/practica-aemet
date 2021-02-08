@@ -70,7 +70,7 @@ namespace UD3_Aemet
 
         private void btnAutonomas_Click(object sender, EventArgs e)
         {
-            string select = (string) cboComunidades.SelectedItem;
+            string select = (string)cboComunidades.SelectedItem;
 
             string cod = codCCAA[select];
 
@@ -139,6 +139,11 @@ namespace UD3_Aemet
             string codAlc = codAlcance[select];
 
             PrediccionMontana[] prediccion = ClienteAemet.ValoresClimaMontana(codMontana, codAlc);
+
+            txtCielo.Text = prediccion[0].Seccion[0].Apartado[0].Texto;
+            txtPrecipitaciones.Text = prediccion[0].Seccion[0].Apartado[1].Texto;
+            textBox1.Text = prediccion[0].Seccion[0].Apartado[2].Texto;
+            textBox2.Text = prediccion[0].Seccion[0].Apartado[3].Texto;
             //TODO Ir accediento a cada elemento que queramos mostrar y ponerlo en la vista
         }
 
