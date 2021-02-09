@@ -68,6 +68,17 @@ namespace UD3_Aemet
             this.cboLocalidades = new System.Windows.Forms.ComboBox();
             this.btnLocalidades = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTemperaturas = new System.Windows.Forms.TextBox();
+            this.lblTemperaturas = new System.Windows.Forms.Label();
+            this.txtViento = new System.Windows.Forms.TextBox();
+            this.txtTormentas = new System.Windows.Forms.TextBox();
+            this.txtCielo = new System.Windows.Forms.TextBox();
+            this.txtPrecipitaciones = new System.Windows.Forms.TextBox();
+            this.lblViento = new System.Windows.Forms.Label();
+            this.lblTormentas = new System.Windows.Forms.Label();
+            this.lblCielo = new System.Windows.Forms.Label();
+            this.lblPrecipitaciones = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cboAlcance = new System.Windows.Forms.ComboBox();
@@ -102,17 +113,6 @@ namespace UD3_Aemet
             this.label1 = new System.Windows.Forms.Label();
             this.btnEstación = new System.Windows.Forms.Button();
             this.dgvEstacion = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblViento = new System.Windows.Forms.Label();
-            this.lblTormentas = new System.Windows.Forms.Label();
-            this.lblCielo = new System.Windows.Forms.Label();
-            this.lblPrecipitaciones = new System.Windows.Forms.Label();
-            this.txtPrecipitaciones = new System.Windows.Forms.TextBox();
-            this.txtCielo = new System.Windows.Forms.TextBox();
-            this.txtTormentas = new System.Windows.Forms.TextBox();
-            this.txtViento = new System.Windows.Forms.TextBox();
-            this.txtTemperaturas = new System.Windows.Forms.TextBox();
-            this.lblTemperaturas = new System.Windows.Forms.Label();
             this.tbComunidades.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -120,11 +120,11 @@ namespace UD3_Aemet
             this.tabPage4.SuspendLayout();
             this.gbLocalidades.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstacion)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbComunidades
@@ -300,7 +300,6 @@ namespace UD3_Aemet
             // 
             this.cboDiasLocalidad.FormattingEnabled = true;
             this.cboDiasLocalidad.Items.AddRange(new object[] {
-            "Ayer",
             "Hoy",
             "Mañana",
             "Pasado mañana",
@@ -535,6 +534,115 @@ namespace UD3_Aemet
             this.tabPage5.Text = "Macizos Montañosos";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtTemperaturas);
+            this.groupBox2.Controls.Add(this.lblTemperaturas);
+            this.groupBox2.Controls.Add(this.txtViento);
+            this.groupBox2.Controls.Add(this.txtTormentas);
+            this.groupBox2.Controls.Add(this.txtCielo);
+            this.groupBox2.Controls.Add(this.txtPrecipitaciones);
+            this.groupBox2.Controls.Add(this.lblViento);
+            this.groupBox2.Controls.Add(this.lblTormentas);
+            this.groupBox2.Controls.Add(this.lblCielo);
+            this.groupBox2.Controls.Add(this.lblPrecipitaciones);
+            this.groupBox2.Location = new System.Drawing.Point(6, 46);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(702, 367);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Resultado";
+            // 
+            // txtTemperaturas
+            // 
+            this.txtTemperaturas.Location = new System.Drawing.Point(163, 223);
+            this.txtTemperaturas.Multiline = true;
+            this.txtTemperaturas.Name = "txtTemperaturas";
+            this.txtTemperaturas.Size = new System.Drawing.Size(524, 54);
+            this.txtTemperaturas.TabIndex = 27;
+            // 
+            // lblTemperaturas
+            // 
+            this.lblTemperaturas.AutoSize = true;
+            this.lblTemperaturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperaturas.Location = new System.Drawing.Point(69, 243);
+            this.lblTemperaturas.Name = "lblTemperaturas";
+            this.lblTemperaturas.Size = new System.Drawing.Size(88, 13);
+            this.lblTemperaturas.TabIndex = 26;
+            this.lblTemperaturas.Text = "Temperaturas:";
+            // 
+            // txtViento
+            // 
+            this.txtViento.Location = new System.Drawing.Point(163, 283);
+            this.txtViento.Multiline = true;
+            this.txtViento.Name = "txtViento";
+            this.txtViento.Size = new System.Drawing.Size(524, 54);
+            this.txtViento.TabIndex = 25;
+            // 
+            // txtTormentas
+            // 
+            this.txtTormentas.Location = new System.Drawing.Point(163, 161);
+            this.txtTormentas.Multiline = true;
+            this.txtTormentas.Name = "txtTormentas";
+            this.txtTormentas.Size = new System.Drawing.Size(524, 58);
+            this.txtTormentas.TabIndex = 24;
+            // 
+            // txtCielo
+            // 
+            this.txtCielo.Location = new System.Drawing.Point(163, 99);
+            this.txtCielo.Multiline = true;
+            this.txtCielo.Name = "txtCielo";
+            this.txtCielo.Size = new System.Drawing.Size(524, 56);
+            this.txtCielo.TabIndex = 23;
+            // 
+            // txtPrecipitaciones
+            // 
+            this.txtPrecipitaciones.Location = new System.Drawing.Point(163, 31);
+            this.txtPrecipitaciones.Multiline = true;
+            this.txtPrecipitaciones.Name = "txtPrecipitaciones";
+            this.txtPrecipitaciones.Size = new System.Drawing.Size(524, 61);
+            this.txtPrecipitaciones.TabIndex = 22;
+            // 
+            // lblViento
+            // 
+            this.lblViento.AutoSize = true;
+            this.lblViento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViento.Location = new System.Drawing.Point(110, 305);
+            this.lblViento.Name = "lblViento";
+            this.lblViento.Size = new System.Drawing.Size(47, 13);
+            this.lblViento.TabIndex = 21;
+            this.lblViento.Text = "Viento:";
+            // 
+            // lblTormentas
+            // 
+            this.lblTormentas.AutoSize = true;
+            this.lblTormentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTormentas.Location = new System.Drawing.Point(87, 181);
+            this.lblTormentas.Name = "lblTormentas";
+            this.lblTormentas.Size = new System.Drawing.Size(70, 13);
+            this.lblTormentas.TabIndex = 17;
+            this.lblTormentas.Text = "Tormentas:";
+            // 
+            // lblCielo
+            // 
+            this.lblCielo.AutoSize = true;
+            this.lblCielo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCielo.Location = new System.Drawing.Point(118, 119);
+            this.lblCielo.Name = "lblCielo";
+            this.lblCielo.Size = new System.Drawing.Size(39, 13);
+            this.lblCielo.TabIndex = 13;
+            this.lblCielo.Text = "Cielo:";
+            // 
+            // lblPrecipitaciones
+            // 
+            this.lblPrecipitaciones.AutoSize = true;
+            this.lblPrecipitaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecipitaciones.Location = new System.Drawing.Point(59, 58);
+            this.lblPrecipitaciones.Name = "lblPrecipitaciones";
+            this.lblPrecipitaciones.Size = new System.Drawing.Size(98, 13);
+            this.lblPrecipitaciones.TabIndex = 7;
+            this.lblPrecipitaciones.Text = "Precipitaciones:";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -766,7 +874,6 @@ namespace UD3_Aemet
             // 
             this.cboDiaPlaya.FormattingEnabled = true;
             this.cboDiaPlaya.Items.AddRange(new object[] {
-            "Ayer",
             "Hoy",
             "Mañana",
             "Pasado mañana"});
@@ -868,115 +975,6 @@ namespace UD3_Aemet
             this.dgvEstacion.Size = new System.Drawing.Size(702, 360);
             this.dgvEstacion.TabIndex = 1;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtTemperaturas);
-            this.groupBox2.Controls.Add(this.lblTemperaturas);
-            this.groupBox2.Controls.Add(this.txtViento);
-            this.groupBox2.Controls.Add(this.txtTormentas);
-            this.groupBox2.Controls.Add(this.txtCielo);
-            this.groupBox2.Controls.Add(this.txtPrecipitaciones);
-            this.groupBox2.Controls.Add(this.lblViento);
-            this.groupBox2.Controls.Add(this.lblTormentas);
-            this.groupBox2.Controls.Add(this.lblCielo);
-            this.groupBox2.Controls.Add(this.lblPrecipitaciones);
-            this.groupBox2.Location = new System.Drawing.Point(6, 46);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(702, 367);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Resultado";
-            // 
-            // lblViento
-            // 
-            this.lblViento.AutoSize = true;
-            this.lblViento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblViento.Location = new System.Drawing.Point(110, 305);
-            this.lblViento.Name = "lblViento";
-            this.lblViento.Size = new System.Drawing.Size(47, 13);
-            this.lblViento.TabIndex = 21;
-            this.lblViento.Text = "Viento:";
-            // 
-            // lblTormentas
-            // 
-            this.lblTormentas.AutoSize = true;
-            this.lblTormentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTormentas.Location = new System.Drawing.Point(87, 181);
-            this.lblTormentas.Name = "lblTormentas";
-            this.lblTormentas.Size = new System.Drawing.Size(70, 13);
-            this.lblTormentas.TabIndex = 17;
-            this.lblTormentas.Text = "Tormentas:";
-            // 
-            // lblCielo
-            // 
-            this.lblCielo.AutoSize = true;
-            this.lblCielo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCielo.Location = new System.Drawing.Point(118, 119);
-            this.lblCielo.Name = "lblCielo";
-            this.lblCielo.Size = new System.Drawing.Size(39, 13);
-            this.lblCielo.TabIndex = 13;
-            this.lblCielo.Text = "Cielo:";
-            // 
-            // lblPrecipitaciones
-            // 
-            this.lblPrecipitaciones.AutoSize = true;
-            this.lblPrecipitaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecipitaciones.Location = new System.Drawing.Point(59, 58);
-            this.lblPrecipitaciones.Name = "lblPrecipitaciones";
-            this.lblPrecipitaciones.Size = new System.Drawing.Size(98, 13);
-            this.lblPrecipitaciones.TabIndex = 7;
-            this.lblPrecipitaciones.Text = "Precipitaciones:";
-            // 
-            // txtPrecipitaciones
-            // 
-            this.txtPrecipitaciones.Location = new System.Drawing.Point(163, 31);
-            this.txtPrecipitaciones.Multiline = true;
-            this.txtPrecipitaciones.Name = "txtPrecipitaciones";
-            this.txtPrecipitaciones.Size = new System.Drawing.Size(524, 61);
-            this.txtPrecipitaciones.TabIndex = 22;
-            // 
-            // txtCielo
-            // 
-            this.txtCielo.Location = new System.Drawing.Point(163, 99);
-            this.txtCielo.Multiline = true;
-            this.txtCielo.Name = "txtCielo";
-            this.txtCielo.Size = new System.Drawing.Size(524, 56);
-            this.txtCielo.TabIndex = 23;
-            // 
-            // txtTormentas
-            // 
-            this.txtTormentas.Location = new System.Drawing.Point(163, 161);
-            this.txtTormentas.Multiline = true;
-            this.txtTormentas.Name = "txtTormentas";
-            this.txtTormentas.Size = new System.Drawing.Size(524, 58);
-            this.txtTormentas.TabIndex = 24;
-            // 
-            // txtViento
-            // 
-            this.txtViento.Location = new System.Drawing.Point(163, 283);
-            this.txtViento.Multiline = true;
-            this.txtViento.Name = "txtViento";
-            this.txtViento.Size = new System.Drawing.Size(524, 54);
-            this.txtViento.TabIndex = 25;
-            // 
-            // txtTemperaturas
-            // 
-            this.txtTemperaturas.Location = new System.Drawing.Point(163, 223);
-            this.txtTemperaturas.Multiline = true;
-            this.txtTemperaturas.Name = "txtTemperaturas";
-            this.txtTemperaturas.Size = new System.Drawing.Size(524, 54);
-            this.txtTemperaturas.TabIndex = 27;
-            // 
-            // lblTemperaturas
-            // 
-            this.lblTemperaturas.AutoSize = true;
-            this.lblTemperaturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperaturas.Location = new System.Drawing.Point(69, 243);
-            this.lblTemperaturas.Name = "lblTemperaturas";
-            this.lblTemperaturas.Size = new System.Drawing.Size(88, 13);
-            this.lblTemperaturas.TabIndex = 26;
-            this.lblTemperaturas.Text = "Temperaturas:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -999,6 +997,8 @@ namespace UD3_Aemet
             this.gbLocalidades.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1006,8 +1006,6 @@ namespace UD3_Aemet
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstacion)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
